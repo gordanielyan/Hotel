@@ -55,7 +55,15 @@ var idClient: string;
 begin
   idClient := dm.cdsRoomID_CLIENT.AsString;
   if idClient = '' then
+  begin
+    DBGrid3.Visible := false;
+    DBGrid4.Visible := false;
+    DBGrid5.Visible := false;
     exit;
+  end
+  DBGrid3.Visible := true;
+  DBGrid4.Visible := true;
+  DBGrid5.Visible := true;
   dm.cdsDebt.Filtered := False;
   dm.cdsDebtServ.Filtered := False;
   dm.cdsComplain.Filtered := False;
