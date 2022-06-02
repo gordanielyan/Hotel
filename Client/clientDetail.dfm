@@ -77,7 +77,7 @@ object fmClientDetail: TfmClientDetail
     Width = 1045
     Height = 184
     Align = alBottom
-    Caption = 'Panel2'
+    Caption = #1053#1077#1090' '#1076#1072#1085#1085#1099#1093
     TabOrder = 1
     object DBGrid3: TDBGrid
       Left = 1
