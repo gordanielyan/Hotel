@@ -51,19 +51,31 @@ begin
 end;
 
 procedure TfmClientDetail.DataSource2DataChange(Sender: TObject; Field: TField);
+var idClient: string;
 begin
+  idClient := dm.cdsRoomID_CLIENT.AsString;
+  if idClient = '' then
+  begin
+    DBGrid3.Visible := false;
+    DBGrid4.Visible := false;
+    DBGrid5.Visible := false;
+    exit;
+  end
+  DBGrid3.Visible := true;
+  DBGrid4.Visible := true;
+  DBGrid5.Visible := true;
   dm.cdsDebt.Filtered := False;
   dm.cdsDebtServ.Filtered := False;
   dm.cdsComplain.Filtered := False;
-  dm.cdsDebt.Filter := 'ID_CLIENT = ' + dm.cdsRoomID_CLIENT.AsString;
-  dm.cdsDebtServ.Filter := 'ID_CLIENT = ' + dm.cdsRoomID_CLIENT.AsString;
-  dm.cdsComplain.Filter := 'ID_CLIENT = ' + dm.cdsRoomID_CLIENT.AsString;
+  dm.cdsDebt.Filter := 'ID_CLIENT = ' + idClient;
+  dm.cdsDebtServ.Filter := 'ID_CLIENT = ' + idClient;
+  dm.cdsComplain.Filter := 'ID_CLIENT = ' + idClient;
   dm.cdsDebt.Filtered := True;
   dm.cdsDebtServ.Filtered := True;
   dm.cdsComplain.Filtered := True;
 //  ShowMessage(dm.cdsDebtServ.Filter);
   dm.cdsClient.Filtered := False;
-  dm.cdsClient.Filter := 'ID = ' + dm.cdsRoomID_CLIENT.AsString;
+  dm.cdsClient.Filter := 'ID = ' + idClient;
   dm.cdsClient.Filtered := True;
   Label1.Caption := dm.cdsClientNAME.AsString;
   dm.cdsClient.Filtered := False;
