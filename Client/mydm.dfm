@@ -381,6 +381,7 @@ object dm: Tdm
     object cdsRoomPRICE: TFloatField
       DisplayLabel = #1062#1077#1085#1072
       FieldName = 'PRICE'
+      currency = True
     end
     object cdsRoomMANS: TIntegerField
       DisplayLabel = #1052#1077#1089#1090#1085#1086#1089#1090#1100
